@@ -3,7 +3,7 @@
 # init
 DOCKER_REGISTRY=$DOCKER_REGISTRY
 BASE_IMAGE=eclipse-temurin:17.0.6_10-jre-alpine
-IMAGE_NAME=openjdk-jre
+IMAGE_NAME=org.homelab.openjdk-jre
 IMAGE_VERSION=17
 
 # build new image
