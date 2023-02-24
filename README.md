@@ -1,1 +1,1 @@
-# jdk-docker-image
+# jre-8-docker-image

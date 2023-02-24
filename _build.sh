@@ -1,19 +1,16 @@
 #!/usr/bin/env bash
 
 # init
-REMOTE_IMAGE=adoptopenjdk/openjdk8:x86_64-alpine-jre8u242-b08
 DOCKER_REGISTRY=$DOCKER_REGISTRY
-LOCAL_IMAGE=openjdk8
-LOCAL_VERSION=1.0.0
-
-# remove any existing images with identical name
-docker rmi $DOCKER_REGISTRY/$LOCAL_IMAGE:$LOCAL_VERSION
+BASE_IMAGE=adoptopenjdk/openjdk8:x86_64-alpine-jre8u362-b09
+IMAGE_NAME=openjdk-jre
+IMAGE_VERSION=8
 
 # build new image
-docker build --build-arg SOURCE_IMAGE=$REMOTE_IMAGE --no-cache -t $DOCKER_REGISTRY/$LOCAL_IMAGE:$LOCAL_VERSION .
+docker build --build-arg SOURCE_IMAGE=$BASE_IMAGE --no-cache -t $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
 
-# remove remote image, to free up disk space
-docker rmi $REMOTE_IMAGE
+# list docker images with same image name
+docker images | grep $IMAGE_NAME
 
-# find new image
-docker images | grep $LOCAL_IMAGE
+# push image to registry
+docker push $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
