@@ -1,1 +1,1 @@
-# jre-8-docker-image
+# jre-17-docker-image
