@@ -2,9 +2,9 @@
 
 # init
 DOCKER_REGISTRY=$DOCKER_REGISTRY
-BASE_IMAGE=adoptopenjdk/openjdk8:x86_64-alpine-jre8u362-b09
+BASE_IMAGE=adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.18_10
 IMAGE_NAME=openjdk-jre
-IMAGE_VERSION=8
+IMAGE_VERSION=11
 
 # build new image
 docker build --build-arg SOURCE_IMAGE=$BASE_IMAGE --no-cache -t $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
