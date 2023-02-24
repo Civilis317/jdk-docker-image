@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # init
-DOCKER_REGISTRY=$DOCKER_REGISTRY
+DOCKER_REGISTRY=$1
 BASE_IMAGE=adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.18_10
-IMAGE_NAME=openjdk-jre
+IMAGE_NAME=org.homelab.openjdk-jre
 IMAGE_VERSION=11
 
 # build new image
